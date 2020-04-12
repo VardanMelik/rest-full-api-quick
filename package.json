@@ -1,0 +1,27 @@
+{
+    "name": "rest-full-api-quick",
+    "version": "1.0.0",
+    "description": "rest-full-api-quick",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/VardanMelik/rest-full-api-quick.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/VardanMelik/rest-full-api-quick/issues"
+    },
+    "homepage": "https://github.com/VardanMelik/rest-full-api-quick#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "mongoose": "^5.9.7"
+    },
+    "devDependencies": {
+        "dotenv": "^8.2.0",
+        "nodemon": "^2.0.3"
+    }
+}
