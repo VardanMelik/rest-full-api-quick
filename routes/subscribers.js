@@ -1,9 +1,17 @@
 const express = require('express')
 const router = express.Router()
+const Subscriber = require('../models/subscriber')
 
 // Get all subscribers
-router.get('/', (req, res) => {
-    res.send('Get all subscribers')
+router.get('/', async(req, res) => {
+    try {
+        // Finding all data from database
+        const subscribers = await Subscriber.find()
+        res.json(subscribers)
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+    //res.send('Get all subscribers')
 })
 
 // Get one subscriber
@@ -12,8 +20,20 @@ router.get('/:id', (req, res) => {
 })
 
 // Create one subscriber
-router.post('/', (req, res) => {
-    res.send('Create one subscriber')
+router.post('/', async(req, res) => {
+    const subscriber = new Subscriber({
+        name: req.body.name,
+        subscribedChannel: req.body.subscribedChannel
+    })
+
+    try {
+        const newSubscriber = await subscriber.save()
+        res.status(201).json(newSubscriber)
+    } catch(error) {
+        res.status(400).json({ message: error.message})
+    }
+    
+    //res.send('Create one subscriber')
 })
 
 // Update one subscriber
