@@ -20,21 +20,19 @@ router.get('/:id', (req, res) => {
 })
 
 // Create one subscriber
-router.post('/', async(req, res) => {
+router.post('/', async (req, res) => {
     const subscriber = new Subscriber({
-        name: req.body.name,
-        subscribedChannel: req.body.subscribedChannel
+      name: req.body.name,
+      subscribedChannel: req.body.subscribedChannel
     })
-
+  
     try {
-        const newSubscriber = await subscriber.save()
-        res.status(201).json(newSubscriber)
-    } catch(error) {
-        res.status(400).json({ message: error.message})
+      const newSubscriber = await subscriber.save()
+      res.status(201).json(newSubscriber)
+    } catch (err) {
+      res.status(400).json({ message: err.message })
     }
-    
-    //res.send('Create one subscriber')
-})
+  })
 
 // Update one subscriber
 router.patch('/:id', (req, res) => {
