@@ -1,6 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const Subscriber = require('../models/subscriber')
+const bodyParser = require('body-parser')
+
+
+// create application/json parser
+const jsonParser = bodyParser.json()
+
+// create application/x-www-form-urlencoded parser
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 
 // Get all subscribers
 router.get('/', async(req, res) => {
@@ -20,7 +29,7 @@ router.get('/:id', (req, res) => {
 })
 
 // Create one subscriber
-router.post('/', async (req, res) => {
+router.post('/',urlencodedParser, async (req, res) => {
     const subscriber = new Subscriber({
       name: req.body.name,
       subscribedChannel: req.body.subscribedChannel
