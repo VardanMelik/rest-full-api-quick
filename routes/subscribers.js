@@ -1,29 +1,29 @@
 const express = require('express')
 const router = express.Router()
 
-// Getting all
+// Get all subscribers
 router.get('/', (req, res) => {
-    res.send('Hello REST Full API')
+    res.send('Get all subscribers')
 })
 
-// Getting One
+// Get one subscriber
 router.get('/:id', (req, res) => {
-    res.send(req.params.id)
+    res.send('Get one subscribers by: id')
 })
 
-// Creating One
+// Create one subscriber
 router.post('/', (req, res) => {
-
+    res.send('Create one subscriber')
 })
 
-// Updating One 
-router.patch('/', (req, res) => {
-
+// Update one subscriber
+router.patch('/:id', (req, res) => {
+    res.send('Update one subscriber by: id')
 })
 
-// Deleting One
+// Delete one subscriber
 router.delete('/:id', (req, res) => {
-
+    res.send('Delete one subscriber by: id')
 })
 
 module.exports = router
